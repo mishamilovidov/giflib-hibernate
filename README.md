@@ -24,6 +24,7 @@
 #### LOCAL DEPLOYMENT ####
 * make sure port 8080 is open
 * refresh all gradle projects
+* java -cp h2-1.4.190.jar org.h2.tools.Server
 * ./gradlew build
 * ./gradlew bootRun
 
