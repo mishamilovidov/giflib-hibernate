@@ -8,6 +8,7 @@ import java.util.List;
 public interface GifService {
 
     List<Gif> findAll();
+    List<Gif> searchByName(String queryString);
     Gif findById(Long id);
     void save(Gif gif, MultipartFile file);
     void delete(Gif gif);

@@ -151,7 +151,7 @@ public class GifController {
     @RequestMapping("/search")
     public String searchResults(@RequestParam String q, Model model) {
         // TODO: Get list of GIFs whose description contains value specified by q
-        List<Gif> gifs = new ArrayList<>();
+        List<Gif> gifs = gifService.searchByName(q);
 
         model.addAttribute("gifs",gifs);
         return "gif/index";

@@ -21,6 +21,9 @@ public class GifServiceImpl implements GifService{
     }
 
     @Override
+    public List<Gif> searchByName(String queryString) { return gifDao.searchByName(queryString); }
+
+    @Override
     public Gif findById(Long id) {
         return gifDao.findById(id);
     }
@@ -36,11 +39,7 @@ public class GifServiceImpl implements GifService{
     }
 
     @Override
-    public void delete(Gif gif) {
-
-        gifDao.delete(gif);
-
-    }
+    public void delete(Gif gif) { gifDao.delete(gif); }
 
     @Override
     public void toggleFavorite(Gif gif) {

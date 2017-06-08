@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -20,6 +21,27 @@ public class GifDaoImpl implements GifDao {
         Session session = sessionFactory.openSession();
         List<Gif> gifs = session.createCriteria(Gif.class).list();
         session.close();
+        return gifs;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Gif> searchByName(String queryString) {
+
+        // Create a list to put search results in
+        List<Gif> gifs = new ArrayList<>();
+
+        // Get a list of all the GIFs in the DB
+        Session session = sessionFactory.openSession();
+        List<Gif> all_gifs = session.createCriteria(Gif.class).list();
+        session.close();
+
+        // Populate search results list based on query string
+        for(Gif gif : all_gifs) {
+            if(gif.getDescription().toLowerCase().contains(queryString.toLowerCase())) {
+                gifs.add(gif);
+            }
+        }
         return gifs;
     }
 
