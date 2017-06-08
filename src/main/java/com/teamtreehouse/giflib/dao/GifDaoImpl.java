@@ -32,15 +32,17 @@ public class GifDaoImpl implements GifDao {
     }
 
     @Override
+    @SuppressWarnings("Duplicates")
     public void save(Gif gif) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(gif);
+        session.saveOrUpdate(gif);
         session.getTransaction().commit();
         session.close();
     }
 
     @Override
+    @SuppressWarnings("Duplicates")
     public void delete(Gif gif) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();

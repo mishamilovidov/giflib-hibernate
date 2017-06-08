@@ -22,6 +22,11 @@ repositories {
     mavenCentral()
 }
 
+// Specify the location the main method to run the app
+springBoot {
+    mainClass = "com.teamtreehouse.giflib.Application"
+}
+
 // Specify dependencies
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
