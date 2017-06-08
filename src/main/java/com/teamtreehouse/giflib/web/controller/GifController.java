@@ -57,7 +57,7 @@ public class GifController {
     @RequestMapping("/favorites")
     public String favorites(Model model) {
         // TODO: Get list of all GIFs marked as favorite
-        List<Gif> faves = new ArrayList<>();
+        List<Gif> faves = gifService.getFavorites();
 
         model.addAttribute("gifs",faves);
         model.addAttribute("username","Chris Ramacciotti"); // Static username

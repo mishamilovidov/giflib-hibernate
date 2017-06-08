@@ -3,6 +3,7 @@ package com.teamtreehouse.giflib.dao;
 import com.teamtreehouse.giflib.model.Gif;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -42,6 +43,16 @@ public class GifDaoImpl implements GifDao {
                 gifs.add(gif);
             }
         }
+        return gifs;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Gif> getFavorites() {
+        Session session = sessionFactory.openSession();
+        List<Gif> gifs = session.createCriteria(Gif.class).add(Restrictions.like("favorite", true)).list();
+        session.close();
+
         return gifs;
     }
 
