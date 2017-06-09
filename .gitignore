@@ -12,3 +12,6 @@
 !h2*.jar
 *.war
 *.ear
+
+## macOS ##
+.DS_Store
