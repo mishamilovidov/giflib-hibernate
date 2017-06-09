@@ -4,6 +4,9 @@
 /out/
 /build/
 
+## VSCode
+.vscode/
+
 ## Gradle
 .gradle/
 
